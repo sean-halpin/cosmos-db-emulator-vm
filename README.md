@@ -4,8 +4,8 @@
 ### Reprovision - reboot & run provision.ps1 again
 `vagrant reload --provision`
 
-### RDP to the VM - this will trigger Cosmos Emulator to start
-`xfreerdp /u:vagrant /p:vagrant /v:127.0.0.1:33899`
+### RDP to the VM - Navigate to Services & start cosmosdbemulator
+`xfreerdp /cert-ignore /u:vagrant /p:vagrant /v:127.0.0.1:33389`
 
 ### Cosmos Web UI
 `https://localhost:8081/_explorer/index.html`  

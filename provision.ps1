@@ -12,4 +12,7 @@ C:\vagrant\nssm\nssm-2.24\win64\nssm.exe set cosmosdbemulator Start SERVICE_DELA
 C:\vagrant\nssm\nssm-2.24\win64\nssm.exe set cosmosdbemulator Type SERVICE_INTERACTIVE_PROCESS
 C:\vagrant\nssm\nssm-2.24\win64\nssm.exe start cosmosdbemulator
 
+Write-Output "Disabling Windows Firewall"
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+
 Write-Output "Done"
