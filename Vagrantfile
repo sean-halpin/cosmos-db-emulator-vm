@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "xnohat/windows10lite"
-  config.vm.box_version = "1.0.0"
+  config.vm.box = "gusztavvargadr/windows-server"
+  config.vm.box_version = "1607-standard"  
   config.vm.provision :shell, path: "provision.ps1"
   config.vm.network "forwarded_port", guest: 8081, host: 8081
   config.vm.provider "virtualbox" do |pmv|
