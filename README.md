@@ -6,7 +6,7 @@
 
 `vagrant reload --provision`
 
-### RDP to the VM - Navigate to Services & start cosmosdbemulator
+### RDP to the VM
 
 `xfreerdp /cert-ignore /u:vagrant /p:vagrant /v:127.0.0.1:33389`
 
