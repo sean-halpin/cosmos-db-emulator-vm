@@ -1,5 +1,7 @@
 .vagrant/
 *.msi
+*.MSI
 *.exe
 *.zip
 nssm/
+node_modules/
