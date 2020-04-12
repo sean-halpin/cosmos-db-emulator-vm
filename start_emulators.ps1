@@ -11,7 +11,7 @@ Do {
     Add-Content C:\loop.txt $epoch
 
     Start-Sleep -s 60
-    Start-CosmosDbEmulator -AllowNetworkAccess -EnableMongoDb -MongoPort 10255 -NoFirewall -NoUI -Key C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== 
+    Start-CosmosDbEmulator -AllowNetworkAccess -EnableMongoDb -EnableMongoDbEndpoint=3.6 -MongoPort 10255 -NoFirewall -NoUI -Key C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== 
 
     cmd.exe /c "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe init /forceCreate"
     cmd.exe /c "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe start"
