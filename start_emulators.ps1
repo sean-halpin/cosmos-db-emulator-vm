@@ -1,7 +1,7 @@
 Write-Output "Starting Azure Emulator Services"
 
-Start-Process -wait SQLLocalDb -ArgumentList "create","MSSQLLocalDb"
-Start-Process -wait SQLLocalDb -ArgumentList "start","MSSQLLocalDb"
+Start-Process -wait SQLLocalDB -ArgumentList "create","MSSQLLocalDB"
+Start-Process -wait SQLLocalDB -ArgumentList "start","MSSQLLocalDB"
 
 Start-Process -wait "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe" -ArgumentList "init","/forceCreate"
 Start-Process -wait "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe" -ArgumentList "start"
