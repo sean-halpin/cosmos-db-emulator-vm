@@ -5,3 +5,4 @@
 *.zip
 nssm/
 node_modules/
+service_loop.txt
