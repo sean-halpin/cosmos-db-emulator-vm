@@ -1,3 +1,6 @@
+# Write-Output "Setting Powershell Execution Policy"
+# set-executionpolicy -executionpolicy unrestricted
+
 Write-Output "Intalling Cosmos DB Emulator"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 (New-Object System.Net.WebClient).DownloadFile('https://aka.ms/cosmosdb-emulator', 'C:\vagrant\cosmos.msi')
@@ -22,6 +25,8 @@ Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
 Write-Output "Installing SQLLocalDB"
 (New-Object System.Net.WebClient).DownloadFile('https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SqlLocalDB.MSI', 'C:\vagrant\SqlLocalDB.MSI')
 Start-Process -wait msiexec -ArgumentList "/i","C:\vagrant\SqlLocalDB.MSI","/qn","IACCEPTSQLLOCALDBLICENSETERMS=YES"
+& "C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe create MSSQLLocalDB"
+& "C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe start MSSQLLocalDB"
 
 Write-Output "Installing Azure Storage Emulator"
 (New-Object System.Net.WebClient).DownloadFile('https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409', 'C:\vagrant\az_storage_emulator.msi')

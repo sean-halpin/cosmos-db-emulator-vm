@@ -1,1 +1,1 @@
-PowerShell C:\vagrant\start_emulators.ps1
+PowerShell -executionpolicy unrestricted -command C:\vagrant\start_emulators.ps1
