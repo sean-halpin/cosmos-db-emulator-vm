@@ -9,5 +9,6 @@ Do {
 
     cmd.exe /c "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe init /forceCreate"
     cmd.exe /c "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe start"
-
+    Start-Sleep -s 15
+    
 } while($cosmosStatus -eq "Stopped")
