@@ -1,9 +1,10 @@
 Write-Output "Intalling Cosmos DB Emulator"
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 (New-Object System.Net.WebClient).DownloadFile('https://aka.ms/cosmosdb-emulator', 'C:\vagrant\cosmos.msi')
 Start-Process -wait C:\vagrant\cosmos.msi -ArgumentList "/quiet"
 
 Write-Output "Installing NSSM"
-(New-Object System.Net.WebClient).DownloadFile('http://nssm.cc/release/nssm-2.24.zip', 'C:\vagrant\nssm.zip')
+(New-Object System.Net.WebClient).DownloadFile('https://nssm.cc/release/nssm-2.24.zip', 'C:\vagrant\nssm.zip')
 Expand-Archive C:\vagrant\nssm.zip -DestinationPath C:\vagrant\nssm -Force
 
 Write-Output "Installing Cosmos DB Emulator as a Service"
