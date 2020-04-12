@@ -30,4 +30,9 @@ Write-Output "Installing Azure Storage Emulator"
 (New-Object System.Net.WebClient).DownloadFile('https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409', 'C:\vagrant\az_storage_emulator.msi')
 Start-Process -wait C:\vagrant\az_storage_emulator.msi -ArgumentList "/quiet"
 
+Write-Output "Configuring Azure Storage Emulator to allow remote access"
+$vm_ip = (Get-NetIPAddress -InterfaceAlias "Ethernet" -AddressFamily "IPv4").IPAddress
+$storage_emulator_config_path = "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe.config"
+((Get-Content -path $storage_emulator_config_path -Raw) -replace '127.0.0.1', $vm_ip ) | Set-Content -Path $storage_emulator_config_path
+
 Write-Output "Done"
