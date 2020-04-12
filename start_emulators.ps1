@@ -13,11 +13,11 @@ Do {
     $date1 = Get-Date -Date "01/01/1970"
     $date2 = Get-Date
     $epoch = (New-TimeSpan -Start $date1 -End $date2).TotalSeconds
-    printAndLog -argstring $epoch
+    printAndLog -argstring "Service Loop: $epoch"
 
     Start-Sleep -s 60
     printAndLog -argstring "Start-CosmosDbEmulator"
-    Start-CosmosDbEmulator -AllowNetworkAccess -EnableMongoDb -EnableMongoDbEndpoint=3.6 -MongoPort 10255 -NoFirewall -NoUI -Key C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== 
+    Start-Process "C:\Program Files\Azure Cosmos DB Emulator\CosmosDB.Emulator.exe" -ArgumentList "/noexplorer","/allownetworkaccess","/computeport=0","/enablemongodbendpoint=3.6","/key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==","/mongoport=10255","/nofirewall","/noui","/disableratelimiting" -ErrorAction Stop -PassThru
     printAndLog -argstring "AzureStorageEmulator.exe init /forceCreate"
     cmd.exe /c "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe init /forceCreate"
     printAndLog -argstring "AzureStorageEmulator.exe start"
