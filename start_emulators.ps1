@@ -16,13 +16,11 @@ Do {
     $epoch = (New-TimeSpan -Start $date1 -End $date2).TotalSeconds
     printAndLog -argstring "Service Loop: $epoch"
 
-    Start-Sleep -s 60
     printAndLog -argstring "Start-CosmosDbEmulator"
-    # "/computeport=0","/noui","/disableratelimiting"
-    Start-Process "C:\Program Files\Azure Cosmos DB Emulator\CosmosDB.Emulator.exe" -ArgumentList "/allownetworkaccess","/key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==","/nofirewall" -ErrorAction Stop -PassThru
+    Start-Process "C:\Program Files\Azure Cosmos DB Emulator\CosmosDB.Emulator.exe" -ArgumentList "/noexplorer","/allownetworkaccess","/computeport=0","/enablemongodbendpoint=3.6","/key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==","/nofirewall","/noui","/disableratelimiting" -ErrorAction Stop -PassThru
     printAndLog -argstring "AzureStorageEmulator.exe init /forceCreate"
     cmd.exe /c "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe init /forceCreate"
     printAndLog -argstring "AzureStorageEmulator.exe start"
     cmd.exe /c "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe start"
-    
+    Start-Sleep -s 60    
 } while($true)
